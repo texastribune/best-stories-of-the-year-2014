@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for item in Sheet1 %}
+<div class="top-story-container">
+  <div class="pick-header">
+    {% if item.author == 'Alana Rocha and Justin Dehn' %}
+    <h2><a href="http://www.texastribune.org/about/staff/rocha-alana/" target="_top">Alana Rocha</a> and <a href="http://www.texastribune.org/about/staff/justin-dehn/" target="_top">Justin Dehn</a>'s pick</h2>
+    {% else %}
+    {% if item.author_profile_url %}
+    <h2><a href="{{ item.author_profile_url }}" target="_top">{{ item.author }}</a>{{ "'" if item.author|last == 's' else "'s" }} pick</h2>
+    {% else %}
+    <h2>{{ item.author }}{{ "'" if item.author|last == 's' else "'s" }} pick</h2>
+    {% endif %}
+    {% endif %}
+  </div>
+  {% if item.video_embed %}
+  <div id="video" class="media">{{ item.video_embed }}</div>
+  {% else %}
+  <img class="lead-art media" src="{{ item.photo_url }}" style="width: 100%;">
+  {% endif %}
+  <div class="story-header">
+    <h3><a href="{{ item.story_url }}" target="_top">{{ item.headline }}</a></h3>
+    <p>{{ item.date_of_pub }}</p>
+    <hr>
+  </div>
+  <div class="prose">
+    <p>{{ item.story_summary }}</p>
+  </div>
+</div>
+
+{% endfor %}
+
+<div style="clear: both; height: 1px;"></div>
+
+
+{% endblock %}

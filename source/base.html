@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ graphic_title }} | The Texas Tribune</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<link rel="stylesheet" href="styles/main.css">
+<body>
+
+<div class="header">
+  <h1>{{ graphic_title }}</h1>
+</div>
+
+<div id="graphic" class="graphic">
+
+{% block content %}{% endblock %}
+
+</div>
+
+<!-- build:js scripts/main.js -->
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../bower_components/fitvids/jquery.fitvids.js"></script>
+<script src="../bower_components/pym.js/src/pym.js"></script>
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+<script>
+
+var pymChild;
+
+function render(width) {
+  'use strict';
+
+  if(pymChild) {
+    pymChild.sendHeightToParent();
+  }
+}
+
+$(window).load(function() {
+  'use strict';
+
+  pymChild = new pym.Child({
+    renderCallback: render
+  });
+});
+
+</script>
+</body>
+</html>

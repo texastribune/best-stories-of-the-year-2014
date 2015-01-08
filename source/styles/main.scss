@@ -1,0 +1,109 @@
+@import 'bourbon/dist/bourbon';
+@import 'neat/app/assets/stylesheets/neat';
+
+@import 'normalize';
+
+$text-color: rgb(40, 40, 40);
+
+body {
+  color: $text-color;
+  font-family: $helvetica;
+  line-height: 1;
+}
+
+a {
+  color: rgb(0, 137, 144);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  background-color: rgb(255, 194, 0);
+  border: 0 none;
+  height: 1px;
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  text-align: center;
+
+  h1 {
+    font-size: 1.5em;
+    margin: 0 0 .5em;
+    padding: 0;
+  }
+}
+
+.graphic {
+  margin: 0 0 1em;
+}
+
+.top-story-container {
+  margin: 0 0 3em;
+}
+
+.lead-art {
+  max-width: 650px;
+  width: 100%;
+}
+
+.media {
+  margin: 0 0 .5em;
+}
+
+.pick-header {
+  margin: 0 0 .5em;
+  padding: 0;
+
+  h2 {
+    color: lighten($text-color, 20%);
+    font-size: .9em;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.story-header {
+  margin: 0 0 .5em;
+
+  h3 {
+    color: $text-color;
+    font-size: 1.15em;
+    line-height: 1.1;
+    margin: 0 0 .25em;
+  }
+
+  p {
+    color: lighten($text-color, 40%);
+    font-size: .75em;
+    margin: 0 0 .75em;
+  }
+}
+
+.prose {
+  p {
+    font-family: $georgia;
+    font-size: .875em;
+    line-height: 1.3;
+    margin: 0 0 1em;
+  }
+}
